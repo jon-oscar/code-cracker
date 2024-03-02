@@ -1,0 +1,20 @@
+{
+  "author": "Jon Portella and Oscar Reyes",
+  "dependencies": {
+    "express": "^4.18.3"
+  },
+  "description": "Website where users can create and share software engineering interview questions and answers",
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "main": "app.js",
+  "name": "code-cracker",
+  "private": false,
+  "repository": "https://github.com/jon-oscar/code-cracker",
+  "scripts": {
+    "dev": "node --watch app.mjs",
+    "start": "node app.mjs"
+  },
+  "version": "1.0.0"
+}
