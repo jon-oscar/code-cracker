@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Layout from "./Layout";
 import NoMatch from "./pages/NoMatch";
+import React from "react";
 
 export default function App(): JSX.Element {
   return (
