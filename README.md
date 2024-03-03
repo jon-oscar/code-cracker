@@ -1,4 +1,4 @@
-# Code Craker
+# Code Cracker
 
 Website link: [https://code-cracker.onrender.com/](https://code-cracker.onrender.com/)
 
