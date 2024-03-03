@@ -24,12 +24,14 @@ Mentor: [@jportella93](https://github.com/jportella93)
 ### Website
 
 Multi page website featuring
+
 - A Home page, showing all posted questions
 - A Question page, showing that particular question and all user answers to it
 - A login/registration page
 - An About page, showing information about this project and contact info of authors
 
 User permissions
+
 - CRUD their own user
 - CRUD their own questions
 - CRUD comments on any question
@@ -39,6 +41,7 @@ User permissions
 The public repository for the website is of utmost importance, as it will show tech recruiters the good working practices of the candidate.
 
 All work on this repo will be done using the GitHub workflow, where the remote repository is cloned on each contributor’s computer, and, for each proposed change, the following steps are taken:
+
 1. A local branch is created off a fresh remote main branch
 1. Changes are done locally in this new branch
 1. When a new change is merged in the remote branch, the local branch is rebased on a fresh copy of remote main branch to keep both branches in sync
