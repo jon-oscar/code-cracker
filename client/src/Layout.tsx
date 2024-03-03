@@ -1,5 +1,5 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 export default function Layout(): JSX.Element {
   return (
@@ -9,13 +9,13 @@ export default function Layout(): JSX.Element {
       <nav>
         <ul>
           <li>
-            <a href="/">Home</a>
+            <a href='/'>Home</a>
           </li>
           <li>
-            <a href="/about">About</a>
+            <a href='/about'>About</a>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <a href='/contact'>Contact</a>
           </li>
         </ul>
       </nav>

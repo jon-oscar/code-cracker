@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "eslint:all",
+    "plugin:react/all",
+    "plugin:tailwindcss/recommended",
+    "plugin:testing-library/react"
+  ],
+  "ignorePatterns": ["./build/*", "./node_modules/*"],
+  "parserOptions": {
+    "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
+    "sourceType": "module" // Allows for the use of imports
+  },
+  "plugins": ["testing-library", "react", "tailwindcss"],
+  "root": true,
+  "rules": {
+    "react/jsx-sort-props": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // React version. "detect" automatically picks the version you have installed.
+    }
+  }
+}
