@@ -55,7 +55,7 @@ Using industry-standard technologies and tools is instrumental for the purpose o
 For the website, the following code libraries and frameworks will be used:
 
 - Next.js as web server
-- React.js via the Next.js meta-framework
+- React.js via Create React App for front end
 - TypeScript for type safety
 - Tailwind CSS for styling, with daisyUI as component library
 
