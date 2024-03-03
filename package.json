@@ -1,0 +1,22 @@
+{
+  "author": "Jon Portella and Oscar Reyes",
+  "bugs": {
+    "url": "https://github.com/jon-oscar/code-cracker/issues"
+  },
+  "description": "Monolith for the Code Cracker website and server",
+  "homepage": "https://github.com/jon-oscar/code-cracker#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "code-cracker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jon-oscar/code-cracker.git"
+  },
+  "scripts": {
+    "dev": "bash dev.sh",
+    "install": "cd client && npm install && npm run build && cd ../server && npm install",
+    "start": "cd server && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
