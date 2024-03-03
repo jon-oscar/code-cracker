@@ -1,8 +1,5 @@
 import express from "express";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import path from "path";
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -11,10 +8,10 @@ const clientBuildPath = path.join(__dirname, "../client/build");
 
 app.use(express.static(clientBuildPath));
 
-app.get("/api/test", (req, res) => {
+app.get("/api/test", (req: express.Request, res: express.Response) => {
   res.json({ message: "Hello from server!" });
 });
-app.get("/*", function (req, res) {
+app.get("/*", function (req: express.Request, res: express.Response) {
   res.sendFile(path.join(clientBuildPath, "index.html"));
 });
 
