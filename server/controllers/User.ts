@@ -1,13 +1,14 @@
 import { Request, Response } from 'express';
-import User from '../models/User';
+import UserModel, { IUser } from '../models/User';
 import sanitize from 'mongo-sanitize';
+import { RequestUser, ResponseUser } from '../../types/User';
 
 class UserController {
   // Create User
   public async create(req: Request, res: Response): Promise<void> {
     try {
-      const sanitizedBody = sanitize(req.body);
-      const existingUser = await User.findOne({
+      const sanitizedBody: RequestUser = sanitize(req.body);
+      const existingUser: IUser | null = await UserModel.findOne({
         $or: [
           { email: sanitizedBody.email },
           { username: sanitizedBody.username },
@@ -17,9 +18,15 @@ class UserController {
         res.status(400).json({ message: 'Username or email already exists' });
         return;
       }
-      const newUser = new User(sanitizedBody);
-      const user = await newUser.save();
-      res.status(201).json(user);
+      const newUser: IUser = new UserModel(sanitizedBody);
+      const user: IUser = await newUser.save();
+      const responseUser: ResponseUser = {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        password: user.password,
+      };
+      res.status(201).json(responseUser);
     } catch (error) {
       res.status(500).json({ message: 'Failed to create user' });
     }
@@ -28,13 +35,19 @@ class UserController {
   // Get Single User
   public async getOne(req: Request, res: Response): Promise<void> {
     try {
-      const sanitizedId = sanitize(req.params.id);
-      const user = await User.findById(sanitizedId);
+      const sanitizedId: ResponseUser['id'] = sanitize(req.params.id);
+      const user: IUser | null = await UserModel.findById(sanitizedId);
       if (!user) {
         res.status(404).json({ message: 'User not found' });
         return;
       }
-      res.json(user);
+      const responseUser: ResponseUser = {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        password: user.password,
+      };
+      res.json(responseUser);
     } catch (error) {
       res.status(500).json({ message: 'Failed to get user' });
     }
@@ -42,21 +55,43 @@ class UserController {
 
   // Get Users
   public async get(req: Request, res: Response): Promise<void> {
-    const users = await User.find();
-    res.json(users);
+    try {
+      const users: IUser[] = await UserModel.find();
+      const responseUsers: ResponseUser[] = users.map((user: IUser) => {
+        return {
+          id: user._id,
+          username: user.username,
+          email: user.email,
+          password: user.password,
+        };
+      });
+      res.json(responseUsers);
+    } catch (error) {
+      res.status(500).json({ message: 'Failed to get users' });
+    }
   }
 
   // Update User
   public async update(req: Request, res: Response): Promise<void> {
     try {
-      const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-      });
+      const user: IUser | null = await UserModel.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+          new: true,
+        },
+      );
       if (!user) {
         res.status(404).json({ message: 'User not found' });
         return;
       }
-      res.json(user);
+      const responseUser: ResponseUser = {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        password: user.password,
+      };
+      res.json(responseUser);
     } catch (error) {
       res.status(500).json({ message: 'Failed to update user' });
     }
@@ -65,7 +100,9 @@ class UserController {
   // Delete User
   public async delete(req: Request, res: Response): Promise<void> {
     try {
-      const user = await User.findByIdAndDelete(req.params.id);
+      const user: IUser | null = await UserModel.findByIdAndDelete(
+        req.params.id,
+      );
       if (!user) {
         res.status(404).json({ message: 'User not found' });
         return;

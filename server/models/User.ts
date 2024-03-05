@@ -1,9 +1,10 @@
 import mongoose, { Document, Schema } from 'mongoose';
+import { User } from '../../types/User';
 
-interface IUser extends Document {
-  username: string;
-  email: string;
-  password: string;
+export interface IUser extends Document {
+  username: User['username'];
+  email: User['email'];
+  password: User['password'];
 }
 
 const UserSchema: Schema = new Schema({
