@@ -1,8 +1,8 @@
 #!/bin/bash
 
 SESS='code-cracker-dev'
-CMD1='cd server && npm run dev'
-CMD2='cd client && npm run dev'
+CMD1='cd client && npm run dev'
+CMD2='cd server && npm run dev'
 
 # Create a new session named "$SESS" and run the first command
 tmux new-session -d -s $SESS "$CMD1"

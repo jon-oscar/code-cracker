@@ -69,6 +69,8 @@ For collaboration, the following tools will be used
 
 For first time setup run `npm run install` to install all dependencies and generate the client build.
 
+Go to the `server` directory and follow the instructions in the `readme.md` file to install the server.
+
 For development run `npm run dev` to start the development server. This uses `tmux` to start in parallel the front end and back end servers. The front end server will be available at `http://localhost:3000` and the back end server at `http://localhost:3001`. In this mode, the front end server will serve all static assets and the back end server will serve the API.
 
 For production, run `npm run start` which will start the back end server and serve the front end assets from the `build` directory.

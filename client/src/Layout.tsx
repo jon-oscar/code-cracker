@@ -17,6 +17,9 @@ export default function Layout(): JSX.Element {
           <li>
             <a href='/contact'>Contact</a>
           </li>
+          <li>
+            <a href='/user'>User</a>
+          </li>
         </ul>
       </nav>
 

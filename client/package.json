@@ -40,6 +40,7 @@
   },
   "name": "client",
   "private": true,
+  "proxy": "http://localhost:3001",
   "scripts": {
     "build": "react-scripts build",
     "dev": "react-scripts start",

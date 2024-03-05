@@ -4,6 +4,7 @@ import About from './pages/About';
 import Layout from './Layout';
 import NoMatch from './pages/NoMatch';
 import React from 'react';
+import User from './pages/User';
 
 export default function App(): JSX.Element {
   return (
@@ -12,6 +13,7 @@ export default function App(): JSX.Element {
         <Route path='/' element={<Layout />}>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
+          <Route path='/user' element={<User />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
