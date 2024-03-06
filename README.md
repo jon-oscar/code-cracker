@@ -54,7 +54,8 @@ Using industry-standard technologies and tools is instrumental for the purpose o
 
 For the website, the following code libraries and frameworks will be used:
 
-- Next.js as web server
+- Express.js as web server
+- MongoDb as database
 - React.js via Create React App for front end
 - TypeScript for type safety
 - Tailwind CSS for styling, with daisyUI as component library
@@ -71,7 +72,7 @@ For first time setup run `npm run install` to install all dependencies and gener
 
 Go to the `server` directory and follow the instructions in the `readme.md` file to install the server.
 
-For development run `npm run dev` to start the development server. This uses `tmux` to start in parallel the front end and back end servers. The front end server will be available at `http://localhost:3000` and the back end server at `http://localhost:3001`. In this mode, the front end server will serve all static assets and the back end server will serve the API.
+For development, from the root directory run `npm run dev` to start the development server. This uses `tmux` to start in parallel the front end and back end servers in a split terminal. The front end server will be available at `http://localhost:3000` and the back end server at `http://localhost:3001`. In this mode, the front end server will serve the react app and the back end server will serve the API anod other static assets.
 
 For production, run `npm run start` which will start the back end server and serve the front end assets from the `build` directory.
 
