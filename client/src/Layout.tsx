@@ -85,7 +85,6 @@ export default function Layout(): JSX.Element {
             </div>
           </button>
           <button className='btn btn-primary'>
-            {' '}
             <a href='/signin'>Sign in</a>
           </button>
         </div>
