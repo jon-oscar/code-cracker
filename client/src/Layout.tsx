@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 export default function Layout(): JSX.Element {
   return (
     <>
-      <div className='navbar bg-base-100'>
+      <div className='navbar bg-base-300'>
         <div className='navbar-start'>
           <div className='dropdown'>
             <div
@@ -83,6 +83,9 @@ export default function Layout(): JSX.Element {
               </svg>
               <span className='badge badge-xs badge-primary indicator-item'></span>
             </div>
+          </button>
+          <button className='btn btn-primary'>
+            <a href='/signin'>Sign in</a>
           </button>
         </div>
       </div>
