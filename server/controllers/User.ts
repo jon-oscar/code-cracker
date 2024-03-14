@@ -2,6 +2,9 @@ import { Request, Response } from 'express';
 import UserModel, { IUser } from '../models/User';
 import sanitize from 'mongo-sanitize';
 import { RequestUser, ResponseUser } from '../../types/User';
+import bcrypt from 'bcrypt';
+
+const salt = bcrypt.genSaltSync(10);
 
 class UserController {
   // Create User
@@ -18,7 +21,15 @@ class UserController {
         res.status(400).json({ message: 'Username or email already exists' });
         return;
       }
-      const newUser: IUser = new UserModel(sanitizedBody);
+      const hashedPassword = await bcrypt.hashSync(
+        sanitizedBody.password,
+        salt,
+      );
+      const newUser: IUser = new UserModel({
+        username: sanitizedBody.username,
+        email: sanitizedBody.email,
+        password: hashedPassword,
+      });
       const user: IUser = await newUser.save();
       const responseUser: ResponseUser = {
         id: user._id,
